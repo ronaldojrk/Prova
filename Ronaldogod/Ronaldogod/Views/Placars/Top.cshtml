@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Ronaldogod.Models.Placar>
+
+@{
+    ViewData["Title"] = "Top";
+}
+@{int i = 0; }
+
+<h2>Top 10 das Melhores Pontuação</h2>
+
+<div style="display: inline; float: left;" class="form-group text-right">
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Index")';">Voltar</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Lugares
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jogador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPontos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @{i++;}
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JogadorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPontos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dia)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

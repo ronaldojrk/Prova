@@ -1,0 +1,39 @@
+﻿@model Ronaldogod.Models.Placar
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Placar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Jogador)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Jogador.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPontos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalPontos)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dia)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+
+    <div style="display: inline; float: left;" class="form-group text-right">
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("Index")';">Voltar</button>
+    </div>
+</div>

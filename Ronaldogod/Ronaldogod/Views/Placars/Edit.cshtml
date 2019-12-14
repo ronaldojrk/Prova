@@ -1,0 +1,45 @@
+﻿@model Ronaldogod.Models.Placar
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Placar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="JogadorId" class="control-label"></label>
+                <select asp-for="JogadorId" class="form-control" asp-items="ViewBag.JogadorId"></select>
+                <span asp-validation-for="JogadorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPontos" class="control-label"></label>
+                <input asp-for="TotalPontos" class="form-control" />
+                <span asp-validation-for="TotalPontos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dia" class="control-label"></label>
+                <input asp-for="Dia" class="form-control" />
+                <span asp-validation-for="Dia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+        <div style="display: inline; float: left;" class="form-group text-right">
+            <button class="btn btn-primary" onclick="location.href='@Url.Action("Index")';">Voltar</button>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,41 @@
+﻿@model Ronaldogod.Models.Jogador
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Jogador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Idade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nascionalidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nascionalidade)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <div style="display: inline; float: left;" class="form-group text-right">
+            <button class="btn btn-primary" onclick="location.href='@Url.Action("Index")';">Voltar</button>
+        </div>
+    </form>
+</div>

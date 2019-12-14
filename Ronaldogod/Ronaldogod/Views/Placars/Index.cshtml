@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Ronaldogod.Models.Placar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Placares</h2>
+
+
+<div style="display: inline; float: left;" class="form-group text-right">
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Create")';">Cadastrar</button>
+</div>
+<div style="display: inline; float: right;" class="form-group text-right">
+    <button class="btn btn-success" onclick="location.href='@Url.Action("Top")';">Top 10</button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jogador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPontos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jogador.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPontos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dia)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
